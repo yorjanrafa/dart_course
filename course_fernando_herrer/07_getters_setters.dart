@@ -1,5 +1,5 @@
 void main() {
-  final mySquare = Square(side: 100);
+  final mySquare = Square(side: -9);
   mySquare.side = -1;
 
   print("Area ${mySquare.area}");
