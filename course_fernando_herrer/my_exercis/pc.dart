@@ -10,6 +10,27 @@ void main() {
   Laptop l1 = Laptop(cpu: 2.1, ram: 16);
   l1.pcSpecs();
   l1.pcType();
+
+  String programRequired(Pc pc) {
+    if (pc.cpu <= 2.5) {
+      return "XX Esta pc no cumple los requerimientos XX ";
+    }
+    return "Esta pc cumple los requerimientos";
+  }
+
+  print("${programRequired(l1)}");
+
+  print("---------------------");
+  print("---------------------");
+  print("---------------------");
+
+  Program photoshop = Program(
+    programName: "Photoshop",
+    ramRequired: 8,
+    cpuRequired: 2.5,
+  );
+  photoshop.checkSpecs(d1);
+  photoshop.checkSpecs(l1);
 }
 
 abstract class Pc {
@@ -47,5 +68,25 @@ class Laptop extends Pc {
 
   void pcType() {
     print("Type: $type");
+  }
+}
+
+class Program {
+  String programName;
+  int ramRequired;
+  double cpuRequired;
+
+  Program({
+    required this.programName,
+    required this.ramRequired,
+    required this.cpuRequired,
+  });
+
+  void checkSpecs(Pc pc) {
+    if (pc.cpu <= cpuRequired && pc.ram >= ramRequired) {
+      print("XX Esta pc no cumple los requerimientos para $programName XX");
+    } else {
+      print(" Esta pc cumple los requerimientos para $programName");
+    }
   }
 }

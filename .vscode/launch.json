@@ -9,6 +9,9 @@
             "name": "Dart & Flutter",
             "request": "launch",
             "type": "dart",
+            "cwd": "/home/propc/flutter",
+            "program": "${file}",
+
         
         }
     ]
